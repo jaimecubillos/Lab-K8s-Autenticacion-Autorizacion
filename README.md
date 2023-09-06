@@ -6,7 +6,7 @@ Crear un deployment con el nombre *cloudcamp1* con las siguientes especificacion
 - Image: nginx:1.14.2
 * replicas: 2
 + namespace: colombia
-- pod name: finanzas
+- container name: finanzas
 * tags environment: stg, location: colombia
 + service account: finanzas-sa
 - Crear el secreto passwordbd con el valor #61!.9sg&)/%8
@@ -20,7 +20,7 @@ Crear un deployment con el nombre *cloudcamp2* con las siguientes especificacion
 - Image: redis:latest
 * replicas: 2
 + namespace: brasil
-- pod name: mercadeo
+- container name: mercadeo
 * tags environment: stg, location: brasil
 + service account: mercadeo-sa
 - Deshabilitar el automando del token de los service account unicamente a nivel de deployment *cloudcamp2*
