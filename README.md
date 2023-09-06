@@ -3,7 +3,7 @@
 ## PARTE 1 - REPASO CONCEPTOS BASICOS
 Crear un deployment con el nombre *cloudcamp1* con las siguientes especificaciones:
 
-- Image: alpine
+- Image: nginx:1.14.2
 * replicas: 3
 + namespace: colombia
 - pod name: finanzas
