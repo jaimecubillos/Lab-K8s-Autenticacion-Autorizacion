@@ -39,3 +39,8 @@ spec:
         secret:
           secretName: passwordbd
           optional: true
+---
+cd $HOME/
+mkdir /lab-autentication-autorizacion
+mkdir secreto
+kubectl exec -it  nginx-deployment-5cd697c784-6bvgd -n colombia -- cat "/etc/secret/passwordbd" > $HOME/lab-autentication-autorizacion/secreto          
