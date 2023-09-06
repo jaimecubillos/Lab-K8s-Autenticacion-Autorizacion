@@ -1,0 +1,36 @@
+kubectl create ns finanzas
+kubectl create sa finanzas-sa -n finanzas
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: finanzas
+  name: ejercicio3-sa-finanzas
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["secrets"]
+  verbs: ["create", "get", "list"]
+- apiGroups: ["apps"] # "" indicates the core API group
+  resources: ["deployments"]
+  verbs: ["create", "get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+# This role binding allows "jane" to read pods in the "default" namespace.
+# You need to already have a Role named "pod-reader" in that namespace.
+kind: RoleBinding
+metadata:
+  name: ejercicio3-sa-finanzas-binding
+  namespace: finanzas
+subjects:
+# You can specify more than one "subject"
+- kind: ServiceAccount
+  name: finanzas-sa
+  namespace: finanzas
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: ejercicio3-sa-finanzas # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
+---
+kubectl auth can-i create secrets --as=system:serviceaccount:finanzas:finanzas-sa -n finanzas
+kubectl auth can-i create deploy --as=system:serviceaccount:finanzas:finanzas-sa -n finanzas
