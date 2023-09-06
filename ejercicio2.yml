@@ -1,0 +1,32 @@
+---
+Create Namespace
+kubectl create namespace brasil
+
+Create Service Account
+kubectl create sa mercadeo-sa -n brasil
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcamp2
+  namespace: brasil
+  labels:
+    environment: stg
+    location: brasil
+    app: redis
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      serviceAccountName: mercadeo-sa
+      automountServiceAccountToken: false
+      containers:
+      - name: mercadeo
+        image: redis
