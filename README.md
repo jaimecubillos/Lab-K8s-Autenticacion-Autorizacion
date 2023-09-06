@@ -10,7 +10,7 @@ Crear un deployment con el nombre *cloudcamp1* con las siguientes especificacion
 * tags environment: stg, location: colombia
 + service account: finanzas-sa
 - Crear el secreto passwordbd con el valor #61!.9sg&)/%8
-* Montar el secreto *passwordbd* como volumen
+* Montar el secreto *passwordbd* como volumen en el path /etc/secret
 
 Copiar el valor del secretto del secreto *passwordbd* en la path $HOME/lab-autentication-autorizacion/secreto
 
