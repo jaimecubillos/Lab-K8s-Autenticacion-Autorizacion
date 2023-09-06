@@ -4,7 +4,7 @@
 Crear un deployment con el nombre *cloudcamp1* con las siguientes especificaciones:
 
 - Image: nginx:1.14.2
-* replicas: 3
+* replicas: 2
 + namespace: colombia
 - pod name: finanzas
 * tags environment: stg, location: colombia
