@@ -25,7 +25,6 @@ Crear un deployment con el nombre *cloudcamp2* con las siguientes especificacion
 + service account: mercadeo-sa
 - Deshabilitar el automando del token de los service account unicamente a nivel de deployment *cloudcamp2*
 
-Copiar el valor del token del service account *mercadeo* en la path $HOME/lab-autentication-autorizacion/token-sa
 
 ## PARTE 3 - RBAC
 
